@@ -1,0 +1,30 @@
+@use '/styles/variables' as v;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Outfit&family=Roboto+Condensed:wght@400;700&family=Work+Sans:wght@400&display=swap');
+
+.container{
+    border: none !important;
+    position: sticky;
+    height: calc(100vh - 50px);
+    // padding: 0 3.5rem;
+    top: 75px;
+    background-color: v.$green;
+    color: white;
+    display: flex;
+    justify-content: center;
+
+   .img_cover{
+        height: 100vh;     
+        opacity: .7;
+   }
+}
+@media (max-width: 760px){
+    .container{
+        // height: calc(100vh - 60px);
+        top: 60px;
+        // margin-top: 4rem;
+    }
+}
+
+@media (min-width: 1221px){
+    .container{display: none;}
+}

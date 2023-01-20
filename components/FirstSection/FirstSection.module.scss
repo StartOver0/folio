@@ -1,0 +1,268 @@
+@use '/styles/variables' as v;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Outfit&family=Work+Sans:wght@400&display=swap');
+
+$animation-delay: 1.25s;
+
+@keyframes typing {
+    100%{
+        left: 0%;
+    }
+    0%{
+        left: 100%;
+    }
+}
+@keyframes desc-animation {
+    0%{transform: translateY(40px);}
+    100%{transform: translateY(0px); opacity: 1;}
+}
+@keyframes img-animation {
+    0%{transform: translateX(40px);}
+    100%{transform: translateY(0px); opacity: 1;}
+}
+.container{
+    border: none !important;
+    position: sticky;
+    height: calc(100vh - 75px);
+    padding: 0 3.5rem;
+    top: 75px;
+    margin-top: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    overflow: hidden;
+    background-color: v.$dark-gray;
+
+    .left_portion{
+        margin-top: .75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    
+        .head{
+            line-height: 1; 
+            opacity: 0;
+            animation: desc-animation 400ms forwards;
+            animation-delay: 1.25s;
+    
+            .name{
+                font-size: clamp(45px, 8vw, 60px);
+                letter-spacing: .5px;
+                font-family: v.$headings;
+                font-weight: 600;
+                width: 610px;
+                color: v.$light-gray;
+                color: white;
+                
+
+                & > span{
+                    color: v.$orange;
+                }
+                    
+            }
+        }
+        
+        .about{
+            margin-left: 4px;
+            width: 550px;
+            font-size: 17px;
+            font-family: 'work sans';
+            letter-spacing: .75px;
+            line-height: 1.4;
+            color: v.$light-gray;
+            opacity: 0;
+            animation: desc-animation 300ms forwards;
+            animation-delay: 1400ms;
+
+        }
+        .btn_cover{
+            display: flex;
+            gap: .5rem;
+            margin-left: 2px;
+            margin-top: 24px;
+            opacity: 0;
+            animation: desc-animation 300ms forwards;
+            animation-delay: 1550ms;
+
+            .button1{
+                font-family: 'Outfit';
+                font-size: 18px;
+                border: 2px solid v.$greenx;
+                background-color: transparent;
+                padding: 1.125rem 3.5rem;
+                border-radius: 2rem;
+                transition: 250ms;
+                color: v.$green;
+                cursor: pointer;
+
+                &:hover{
+                    color: white;
+                    background-color: v.$greenx;
+                }
+    
+            }
+            .button2{
+                background-color: transparent;
+                font-family: 'Outfit';
+                font-size: 18px;
+                border: 2px solid v.$orange;
+                padding: 1.125rem 3.5rem;
+                border-radius: 2rem;
+                transition: 250ms;
+                color: v.$light-orange;
+                cursor: pointer;
+
+                &:hover{
+                    color: white;
+                    background-color: v.$orange;
+                }
+    
+            }
+        }
+    }
+
+    .right_portion{
+        opacity: 0;
+        animation: img-animation 500ms forwards;
+        animation-delay: 1700ms;
+
+        .img_cover{
+            font-size: 0;
+            margin-top: 1rem;
+            position: relative;
+            border-radius: 30%;
+            max-height: 400px;
+            max-width: 400px;
+            overflow: hidden;
+            box-shadow: 0 0 0 3px v.$dark-gray,
+                        0 0 0 5px v.$green,
+                        0 0 0 8px v.$dark-gray,
+                        0 0 0 10px v.$greenx;
+        }
+    }
+}
+
+
+@media (max-width: 1220px) {
+    .container{
+        .left_portion{
+            transform: scale(1.15);
+        }
+        .right_portion{
+            display: none;
+        }
+    }
+}
+@media (max-width: 880px) {
+    .container{
+        
+        .left_portion{
+            transform: scale(1);
+            .head .name{
+                width: 570px;
+            }
+        }
+    }
+}
+@media (max-width: 760px){
+    .container{
+        height: calc(100vh - 60px);
+        top: 60px;
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 680px) {
+    .container{
+        padding: 0 2.25rem;
+        .left_portion {
+            .head{
+
+                .name{
+                    width: auto;
+                }
+            }
+            .about{
+                width: 82%;
+                font-size: 16px;
+            }
+            .btn_cover{
+                .button1{
+                    font-size: 16px;
+                    padding: 1rem 2.75rem;
+
+                }
+                .button2{
+                    font-size: 16px;
+                    padding: 1rem 2.75rem;
+
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .container{
+        padding: 0 1.5rem;
+        .left_portion {
+            // transform: scale(.9);
+
+            .head{
+                
+                .name{
+                    line-height: 1.05;
+                    & > span{
+                        display: block;
+                    }
+                }
+               
+            }
+            .about{
+                font-size: 15px;
+                letter-spacing: .6px;
+            }
+            .btn_cover{
+                .button1{
+                    font-size: 15px;
+                    padding: .85rem 2.3rem;
+
+                }
+                .button2{
+                    font-size: 15px;
+                    padding: .85rem 2.3rem;
+
+                }
+            }
+    }
+}}
+
+@media (max-width: 360px) {
+    .container{
+        .left_portion {
+            .head{
+                
+                .name{
+                    font-size: 38px;
+                }
+            }
+            .about{
+                width: 85%;
+                font-size: 14px;
+                letter-spacing: .4px;
+            }
+            .btn_cover{
+                margin-left: 0;
+                .button1{
+                    font-size: 13px;
+                    padding: .65rem 1.75rem;
+
+                }
+                .button2{
+                    font-size: 13px;
+                    padding: .65rem 1.75rem;
+
+                }
+            }
+    }
+}}

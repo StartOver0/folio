@@ -1,0 +1,98 @@
+@use 'variables' as v;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&family=Open+Sans:wght@300;400&family=PT+Sans:wght@400;700&family=Poppins:wght@100;200;300;400;500&family=Roboto+Mono:wght@100;200;300&family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'outfit', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  scroll-behavior: smooth;
+  &::-webkit-scrollbar{display: none;}
+}
+
+*{
+  color: inherit;
+  text-decoration: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+}
+
+
+
+
+@keyframes animate1 {
+  0%{transform: rotate(-10deg); opacity: 0%;}
+  100%{transform: rotate(0deg);}
+}
+@keyframes animate2 {
+  0%{transform: rotate(10deg); }
+  100%{transform: rotate(0deg); opacity: 1;}
+}
+@keyframes onscreen {
+  100%{opacity: 1;}
+}
+@keyframes ltor {
+
+  0%{transform: translate(-10px);}
+  100%{transform: translate(0px); opacity: 1;}
+}
+@keyframes rtol {
+
+  0%{transform: translate(10px);}
+  100%{transform: translate(0px); opacity: 1;}
+}
+@keyframes goaway {
+   100%{display: none;}
+}
+
+#frame1{
+  transform: scaleX(1.2) translateX(-5px);
+}
+#green1{
+  animation: animate1 1s;
+  animation-iteration-count: 1;  
+}
+#orange2{
+  opacity: 0;
+  animation: animate2 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+#green2, #orange1{
+  opacity: 0;
+  animation: onscreen 700ms forwards;
+  animation-delay: 1.8s;
+  animation-iteration-count: 1;
+} 
+
+#l{
+  opacity: 0;
+  animation: ltor 800ms forwards;
+  animation-delay: 1s;
+  animation-iteration-count: 1;
+}
+
+#re{
+  opacity: 0;
+  animation: rtol 800ms forwards;
+  animation-delay: 1s;
+  animation-iteration-count: 1;
+}
+
+/* #green1:hover{
+  transform: rotate(30deg);
+} */

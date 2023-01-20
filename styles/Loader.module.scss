@@ -1,0 +1,123 @@
+@use 'variables' as v;
+
+
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}
+.body{
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    background-color: v.$dark-gray;
+    overflow: hidden;
+    position: relative;
+    animation: goaway 1ms forwards;
+    animation-delay: 3.2s;
+}
+.container{
+    position: absolute;
+    width: 250vw;
+    height: 250vw;
+    display:flex;
+    aspect-ratio: 1/1;
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    transform: rotate(45deg);   
+}
+.left, .right{
+    width: 100%;
+}
+.left{
+    background-color: v.$green;
+    animation: gtl 500ms forwards;
+    animation-delay: 2.75s;
+}
+.right{
+    background-color: v.$light-orange;
+    animation: gtr 500ms forwards;
+    animation-delay: 2.75s;
+}
+.body svg{
+    position: absolute;
+    transform: scale(1.5);
+    border-top-left-radius: 40%;
+    border-bottom-right-radius: 40%;
+    animation: scaledown 500ms forwards;
+    animation-delay: 2.75s;
+}
+
+@keyframes animate1 {
+    0%{transform: rotate(-10deg); opacity: 0%;}
+    100%{transform: rotate(0deg);}
+}
+@keyframes animate2 {
+    0%{transform: rotate(10deg); }
+    100%{transform: rotate(0deg); opacity: 1;}
+}
+@keyframes onscreen {
+    100%{opacity: 1;}
+}
+
+@keyframes scaledown {
+    0%{background-color: magenta;}
+    100%{transform: scale(0); opacity: 0;}
+}
+@keyframes goaway {
+    100%{opacity: 0;}   
+ }
+
+
+@keyframes ltor {
+
+    0%{transform: translate(-10px);}
+    100%{transform: translate(0px); opacity: 1;}
+}
+@keyframes rtol {
+
+    0%{transform: translate(10px);}
+    100%{transform: translate(0px); opacity: 1;}
+}
+@keyframes gtl {
+    100%{transform: translateX(-200vw);}
+}
+@keyframes gtr {
+    100%{transform: translateX(200vw);}
+}
+#green1{
+    animation: animate1 1s;
+    animation-iteration-count: 1;  
+}
+#orange2{
+    opacity: 0;
+    animation: animate2 1s;
+    animation-iteration-count: 1;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+
+#green2, #orange1{
+    opacity: 0;
+    animation: onscreen 500ms forwards;
+    animation-delay: 2s;
+    animation-iteration-count: 1;
+}
+ #lr2, #lr1{
+    opacity: 0;
+    animation: ltor 500ms forwards;
+    animation-delay: 2.5s;
+    animation-iteration-count: 1;
+}
+
+#re{
+    opacity: 0;
+    animation: rtol 500ms forwards;
+    animation-delay: 2.5s;
+    animation-iteration-count: 1;
+}
+
+/* #green1:hover{
+    transform: rotate(30deg);
+} */

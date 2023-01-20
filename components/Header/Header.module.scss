@@ -1,0 +1,354 @@
+@use '/styles/variables' as v;
+
+.blur{
+    filter: blur(3px);
+}
+.open{
+    @keyframes atop1 {
+        60%{transform: translateY(19px);;}
+        100%{transform: rotate(45deg) translate(20px, -30px);}
+    }
+    @keyframes atop2 {
+        60%{transform: translateY(19px);}
+        100%{transform: rotate(-45deg) translate(-50px, 40px);}
+    }
+    @keyframes amid {
+        99%{opacity: 1;}
+        100%{opacity: 0;}
+    }
+    @keyframes abot {
+        50%{transform: translateY(-19px); opacity: 0;}
+        100%{opacity: 0;}
+    }    
+    & .top1{
+        animation: atop1 400ms forwards;
+    }
+    & .top2{
+        animation: atop2 400ms forwards;
+    }
+    & .mid{
+        animation: amid 200ms forwards;
+    }
+    & .bot{
+        animation: abot 200ms forwards;
+    }
+}
+.close{
+    @keyframes bup {
+        100%{transform: translate(0px);}
+    }
+    @keyframes bdown {
+        50%{opacity: 1}
+        100%{transform: translate(0); opacity: 1;}
+    }
+    
+    & .top1{
+        transform: rotate(45deg) translate(20px, -30px);
+        animation: bup 500ms forwards;
+    }
+    & .top2{
+        transform: rotate(-45deg) translate(-50px, 40px);
+        animation: bup 500ms forwards;
+    }
+    & .mid{
+        opacity: 0;
+        transform: translateY(-19px);
+        animation: bdown 200ms forwards;
+        animation-delay: 250ms;
+    }
+    & .bot{
+        opacity: 0;
+        transform: translateY(-19px);
+        animation: bdown 200ms forwards;
+        animation-delay: 400ms;
+    }
+}
+
+@keyframes animation-links {
+    0%{transform: translateY(-25px);}
+    100%{transform: translateY(0px); opacity: 1;}
+}
+.logo{ opacity: 0; animation: animation-links 300ms forwards; animation-delay: 50ms;}
+
+.container {
+    z-index: 101;
+    position: fixed;
+    width: 100%;
+    color: white;
+    top: 0;
+
+    .nav {
+        height: 75px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.75rem 2rem 1.5rem .5rem;
+        background-color: v.$mod-gray;
+        transition: 350ms;
+    }
+
+    .triangles {
+        display: flex;
+        align-items: center;
+        background-color: transparent;
+        
+        .tile {
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid v.$mod-gray;
+            transition: 350ms;
+        }
+    }
+
+    .nav_mobile {
+        display: none;
+    }
+
+    .navlinks_desktop {
+        font-family: 'outfit';
+        display: flex;
+        align-items: center;
+        margin: 0;
+        gap: 3.25rem;
+
+        li {
+            opacity: 0;
+            font-size: 15px;
+            list-style: decimal-leading-zero;
+            cursor: pointer;
+            font-weight: bold;
+            letter-spacing: .5px;
+
+            &:hover {
+                button {
+                    color: v.$green;
+                }
+            }
+
+            &:last-of-type {
+                border: 2px solid v.$orange;
+                background-color: v.$orange;
+                list-style: none;
+                padding: .5rem 1.25rem;
+                border-radius: 4px;
+                margin-left: -1rem;
+                transition: 250ms;
+
+                &:hover {
+                    color: v.$dark-gray;
+                    border: 2px solid v.$green;
+                    background-color: transparent;
+
+                    button {
+                        color: v.$green;
+
+                        &::before {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            button {
+                position: relative;
+                background-color: transparent;
+                border: none;
+                font-family: inherit;
+                font-size: inherit;
+                font-weight: bold;
+                letter-spacing: .5px;
+                cursor: pointer;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    bottom: -4px;
+                    width: 0%;
+                    height: 2px;
+                    background-color: v.$green;
+                    transition: 250ms;
+
+                }
+
+                &:hover {
+                    &::before {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        & li:nth-of-type(1){ animation: animation-links 300ms forwards; animation-delay: 200ms;}
+        & li:nth-of-type(2){ animation: animation-links 300ms forwards; animation-delay: 350ms;}
+        & li:nth-of-type(3){ animation: animation-links 300ms forwards; animation-delay: 500ms;}
+        & li:nth-of-type(4){ animation: animation-links 300ms forwards; animation-delay: 650ms;}
+    }
+}
+.orange{
+    .nav{
+        background-color: v.$light-orange;
+        transition: 500ms;
+    }
+    .triangles .tile{
+        border-top: 20px solid v.$light-orange;
+        transition: 500ms;
+    }
+    .nav_mobile{
+        background-color: v.$light-orange;
+    }
+}
+.green{
+    .nav{
+        background-color: v.$greenx;
+        transition: 500ms;
+        
+    }
+    .triangles .tile{
+        border-top: 20px solid v.$greenx;
+        transition: 500ms;
+    }
+}
+.nospike{
+    .nav{
+        transition: 500ms;
+    }
+    .triangles .tile{
+        border-top: 20px solid transparent;
+        transition: 500ms;
+    }
+}
+
+@media (max-width: 760px) {
+    .container {
+        .nav {
+            height: 60px;
+            & > *{
+                display: none;
+            }
+        }
+
+        .nav_mobile {
+            display: block;
+            width: 100vw;
+            background-color: v.$dark-gray;
+
+            & > div{
+                height: 60px;
+                z-index: 5;
+                display: flex;
+                position: absolute;
+                top: 0;
+                align-items: center;
+                justify-content: space-between;
+                padding: 4px 1rem 0 0px; 
+
+                width: 100%;
+                background-color: transparent;
+
+                & > div:last-of-type{
+                    padding-top: 3px;
+                }
+            }
+            & button{
+                z-index: 4;
+                position: relative;
+            }
+            .nav_isopen{
+                transform: translate(100vw);
+                transition: 400ms ease-in;
+            }
+            .nav_isclose{
+                transform: translate(0);
+                transition: 400ms ease-out;
+            }
+
+            .navlinks_mobile {
+                z-index: 4;
+                background-color: #2e304b;
+                position: fixed;
+                right: 0; 
+                top: 0;
+                width: min(75vw, 400px);
+                padding: 5rem 2rem;
+                height: 100vh;
+                font-family: 'outfit';
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin: 0;
+                gap: 3.25rem;
+
+                li {
+                    font-size: 15px;
+                    list-style: decimal-leading-zero;
+                    cursor: pointer;
+                    font-weight: bold;
+                    letter-spacing: .5px;
+                    
+                    &::marker{
+                        display: block;
+                        width: 100%;
+                    }
+                    &:hover {
+
+                        button { 
+                            color: v.$green;
+                        }
+                    }
+
+                    &:last-of-type {
+                        border: 2px solid v.$orange;
+                        background-color: v.$orange;
+                        list-style: none;
+                        padding: .5rem 1.25rem;
+                        border-radius: 4px;
+                        margin-left: -1rem;
+                        transition: 250ms;
+                        
+                        & button{
+                            padding: 0rem .5rem;
+                        }
+
+                        &:hover {
+                            color: v.$dark-gray;
+                            border: 2px solid v.$green;
+                            background-color: transparent;
+
+                            button {
+                                color: v.$green;
+
+                                &::before {
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+
+                    button {
+                        position: relative;
+                        background-color: transparent;
+                        border: none;
+                        font-family: inherit;
+                        font-size: inherit;
+                        font-weight: bold;
+                        letter-spacing: .5px;
+        
+                       
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .container {
+        height: max-content;
+
+        .nav {
+            padding: 1.5rem 2rem;
+        }
+    }
+}
