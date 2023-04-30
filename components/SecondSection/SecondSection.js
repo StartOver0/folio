@@ -1,5 +1,5 @@
 import styles from './SecondSection.module.scss';
-import img from '/public/images/myImg.jpeg';
+import img from '/public/images/myNewImg.jpeg';
 import Image from 'next/image';
 import React, { useState, useEffect, useRef } from 'react';
 // import {ReactComponent as Twitter} from '/public/icons/twitter.svg';

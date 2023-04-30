@@ -5,9 +5,8 @@
 
 .container{
     position: sticky;
-    height: calc(100vh - 75px);    
-    top: 74px;
-    // background-color: v.$light-gray;
+    height: v.$container-height;
+    top: 72px;
     color: white;
     overflow: hidden;
 
@@ -15,11 +14,11 @@
         margin-left: -20px;
         display: flex;
         align-items: center;
-        background-color: transparent;
+        background-color: transparent;  
 
         .tile {
-            width: 0;
-            height: 0;
+            width: 40px;
+            height: 20px;
             border-left: 20px solid transparent;
             border-right: 20px solid transparent;
             border-bottom: 20px solid v.$light-orange;
@@ -27,6 +26,7 @@
     }
 
     .cc{
+        margin-top: -1px;
         height: 100%;
         padding: 0 3.5rem;
         display: flex;
@@ -185,7 +185,7 @@
                             border-radius: 4px;
                         }
                     & span{
-                        transition: 300ms;
+                        transition: 250ms;
                         position: relative;
                         left: -.53rem;
                         top: 4px;
@@ -261,8 +261,8 @@
 }
 @media (max-width: 760px) {
     .container{
-        height: calc(100vh - 60px);
-        top: 60px;
+        height: v.$mcontainer-height;
+        top: 58px;
         .cc{
             padding-bottom: 7rem;
         }

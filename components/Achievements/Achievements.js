@@ -4,19 +4,20 @@ import img2 from '/public/images/codingninjas.png';
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 
-export default function SecondSection({passedRef}){
+export default function SecondSection({green, passedRef}){
     
     const {ref: achievementRef1, inView: isAchievement1Visible} = useInView({threshold: 1});
     const {ref: achievementRef2, inView: isAchievement2Visible} = useInView({threshold: 1});
 
     return ( 
         <div className={styles.container} ref = {passedRef}>
-            
+            {!green ? 
             <div className={styles.triangles}>
                 {Array.from(Array(140)).map((atri, index) => (
                     <div className={styles.tile} key={index} onClick={() => handleOnclick(index)} ></div>
                 ))}
             </div>
+            :<div style={{width: '100%', height: '20px', backgroundColor: '#1da1a3'}}></div>}
             <div className={styles.cc}>
                 <div className={styles.sections}>
                     <h2 className={styles.heading}>Achievements</h2>

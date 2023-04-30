@@ -41,7 +41,7 @@ export default function Contact({passedRef}){
             }, 2000)
 
         }, error => {
-            console.log('dhang se kr', error)
+            console.log('dhang se kro', error)
             setIsClicked(0);
         });
     }

@@ -19,9 +19,8 @@
 }
 @media (max-width: 760px){
     .container{
-        // height: calc(100vh - 60px);
-        top: 60px;
-        // margin-top: 4rem;
+        height: v.$mcontainer-height;
+        top: 58px;
     }
 }
 

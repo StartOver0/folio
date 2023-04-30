@@ -6,8 +6,6 @@ import Contact from '/components/Contact/Contact'
 import Achievements from '/components/Achievements/Achievements'
 import styles from '../styles/Home.module.scss'
 import ImageSection from '../components/ImageSection/ImageSection';
-import Chek from '/components/Chek/Chek';
-import Typewriter from '/components/Typewriter/Typewriter';
 import { useEffect, useState, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 import Loader from '../components/Loader/Loader';
@@ -43,7 +41,6 @@ export default function Home() {
             console.log(window.innerHeight, window.innerWidth);
             setLoading(0);
             isFirst.current = 0;
-
         }, 3200);
       }
   }, [])
@@ -62,14 +59,11 @@ export default function Home() {
             <div ref={myRef2} style = {{position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'center', minHeight: 'calc(100vh - 90px)', backgroundColor:"rgb(242, 242, 242)"}}>
               <WorkSection/>
             </div>
-            <Achievements passedRef = {myRef3}/>
+            <Achievements green={green1} passedRef = {myRef3}/>
             <Contact passedRef={myRef4}/>
-            <div ref={myRef5} style={{height: ".5px"}}></div> 
+            <div ref={myRef5} style={{height: ".5px"}}></div>
           </div>
       </div>
-
     </div>
-
-    // <Typewriter />
   )
 }

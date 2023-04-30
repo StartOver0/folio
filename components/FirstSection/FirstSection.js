@@ -7,8 +7,6 @@ import { useEffect, useRef, useState } from 'react';
 export default function FirstSection({gotoSection}){
     const titles = ['developer', 'developer', 'programmer', 'programmer', 'student', 'student'];
     const len = titles.length
-    const [value, setValue]= useState(0);
-    
     
     return (
         <div className={styles.container}>

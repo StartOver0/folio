@@ -17,5 +17,9 @@ $greenx1: #43c4c7;
 $greenx: #1da1a3;
 $dark-green: #2d9395;
 $headings: 'Outfit';
+$header-height: 75px;
+$mheader-height: 60px;
+$mcontainer-height: calc(calc(100vh - $mheader-height) + 4px);
+$container-height: calc(100vh - $header-height);
 
 
